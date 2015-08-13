@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h3>Here's a list of states. Click any one for details</h3>
+</div>
+
+<div class="row marketing col-md-6">
+  <div data-ng-repeat="state in main.awesomeThings" class="list-group-item-heading" data-ng-click="main.getDetails(state, $index)">
+    * - {{state}}
+  </div>
+</div>
+<div class="row marketing col-md-6" data-ng-if="main.details.length"> {{main.details}}</div>
+<div class="col-md-12 col-xs-12"><button data-ng-click="main.getAbbreviations()">See abbreviations</button>
+<ul data-ng-show="main.showAbbr">
+  <li data-ng-repeat="abbr in main.abbreviations">{{abbr.full}} -- {{abbr.short}}</li>
+</ul>
+</div>

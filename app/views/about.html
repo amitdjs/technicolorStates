@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h3>Here's a list of Messages. Feel free to add more.</h3>
+</div>
+
+<div class="row marketing col-md-6">
+  <div data-ng-repeat="message in about.messages" class="list-group-item-heading">
+    * - {{message}}
+  </div>
+</div>
+<div class="row marketing col-md-6" data-ng-if="main.details.length"> {{main.details}}</div>
+
+<div>
+  <add-message></add-message>
+</div>

@@ -1,0 +1,10 @@
+<div class="jumbotron">
+  <h1>Hey!</h1>
+  <p class="lead">
+    Please Login first.
+  </p>
+  <input type="text" data-ng-model="login.username" placeholder="Username" style="margin: 20px">
+  <input type="password" data-ng-model="login.password" placeholder="password" style="margin: 20px">
+  <p><a class="btn btn-lg btn-success" ng-click="login.hit()">Login<span class="glyphicon glyphicon-ok"></span></a></p>
+  <p data-ng-if="login.invalid">{{login.correctionMessage}}</p>
+</div>
