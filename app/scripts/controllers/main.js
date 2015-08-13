@@ -14,6 +14,7 @@ angular.module('technicolorStatesApp')
     that.awesomeThings = [];
     that.details = '';
     that.showAbbr = false;
+    that.abbrMessage = 'Show Abbreviations';
 
     $rootScope.loggedIn = true
     that.init = function () {
@@ -38,7 +39,13 @@ angular.module('technicolorStatesApp')
     };
 
     that.getAbbreviations = function () {
+      if(that.showAbbr) {
+        that.showAbbr = false;
+        that.abbrMessage = 'Show Abbreviations'
+        return
+      }
       RestService.getAbbreviations().then(function (data) {
+        that.abbrMessage = 'hide Abbreviations'
         that.showAbbr = true;
         that.abbreviations = data;
       })

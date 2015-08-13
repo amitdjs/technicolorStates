@@ -8,7 +8,7 @@
   </div>
 </div>
 <div class="row marketing col-md-6" data-ng-if="main.details.length"> {{main.details}}</div>
-<div class="col-md-12 col-xs-12"><button data-ng-click="main.getAbbreviations()">See abbreviations</button>
+<div class="col-md-12 col-xs-12"><button data-ng-click="main.getAbbreviations()">{{main.abbrMessage}}</button>
 <ul data-ng-show="main.showAbbr">
   <li data-ng-repeat="abbr in main.abbreviations">{{abbr.full}} -- {{abbr.short}}</li>
 </ul>
