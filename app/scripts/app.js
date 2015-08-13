@@ -17,14 +17,14 @@ angular
     'technicolorStatesApp.directives'
   ])
   .config(function ($routeProvider) {
-    console.log('herea')
+    /*Using controller as vm approach*/
     $routeProvider
-      .when('/login', {
+      .when('/', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
         controllerAs:'login'
       })
-      .when('/', {
+      .when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
@@ -41,7 +41,6 @@ angular
   .constant('APIPATH', 'localhost:3000')
   .run(function($rootScope, RestService, $location) {
   $rootScope.logout = function () {
-    console.log('sdjsd')
     RestService.logOutUser().then(function () {
       $location.path('/login');
       $rootScope.loggedIn = false;

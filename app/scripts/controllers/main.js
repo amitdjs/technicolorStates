@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc function
- * @name technicolorStatesApp.controller:MainCtrl
+ * @name technicolorStatesApp:MainCtrl
  * @description
  * # MainCtrl
  * Controller of the technicolorStatesApp
@@ -16,21 +16,21 @@ angular.module('technicolorStatesApp')
     that.showAbbr = false;
     that.abbrMessage = 'Show Abbreviations';
 
-    $rootScope.loggedIn = true
+    $rootScope.loggedIn = true;
+    /*Check if user is logged in already, if not redirect to login page, if yes then fetch list of states*/
     that.init = function () {
       if(!$rootScope.loggedIn) {
-        $location.path('/login');
+        $location.path('/');
         return;
       }
       RestService.getStates().then(function (data) {
-        console.log(data)
         that.awesomeThings = data;
-          that.getDetails ('state1', 0)
+        that.getDetails ('state1', 0)
       },
       function (data) {
         console.log(data)
       })
-    }
+    };
 
     that.getDetails = function (state, index) {
       RestService.getDetails(state).then(function (data) {
@@ -52,7 +52,5 @@ angular.module('technicolorStatesApp')
     };
 
     that.init();
-
-
   });
 

@@ -1,10 +1,22 @@
 angular.module('technicolorStatesApp.services', [])
   .service('RestService', function ($q, $http, APIPATH) {
-    var messages = ['some', 'messages', 'left', 'by', 'users']
+    var messages = ['some', 'messages', 'left', 'by', 'users'];
+    var users = [
+      {name: 'alice', pass: 'password1'},
+      {name: 'bob', pass: 'password2'},
+      {name: 'charlie', pass: 'password3'},
+      {name: 'dan', pass: 'password4'}
+    ];
     return {
+
+      /*Commented out $http methods, mocking results for demo*/
+
       loginUser: function (username, password) {
         var deferred = $q.defer();
-        if(username == password) {
+        var user = _.find(users, function (dt) {
+          return dt.name == username && dt.pass == password
+        });
+        if(user) {
           deferred.resolve('authenticated');
         }
         else {

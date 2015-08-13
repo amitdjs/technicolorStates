@@ -14,9 +14,8 @@ angular.module('technicolorStatesApp')
     $rootScope.loggedIn = true;
 
     that.init = function () {
-      console.log('sssss')
       if(!$rootScope.loggedIn) {
-        $location.path('/login');
+        $location.path('/');
         return;
       }
       RestService.getMessages().then(function (data) {
